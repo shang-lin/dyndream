@@ -99,8 +99,8 @@ def main():
     else:
         logfile = ''
 
-    logging.basicConfig(filename=logfile, level=logging.INFO, format='%(message)s')
-    logging.info('Starting {} on {}'.format(os.path.basename(sys.argv[0]), time.asctime()))
+    logging.basicConfig(filename=logfile, filemode='a', level=logging.INFO, format='%(message)s')
+    logging.info('** Starting {} on {} **'.format(os.path.basename(sys.argv[0]), time.asctime()))
     logging.info('Using config file {}'.format(config_file))
     ip = get_ip()
     old_ip = get_dns_ip()
@@ -108,7 +108,7 @@ def main():
         logging.info("IP address has not changed.")
     else:
         update_ip(old_ip, ip)
-    logging.info('Ending {} on {}'.format(os.path.basename(sys.argv[0]), time.asctime()))
+    logging.info('** Ending {} on {} **'.format(os.path.basename(sys.argv[0]), time.asctime()))
 
 if __name__ == "__main__":
     main()
