@@ -23,7 +23,7 @@ def read_config(config_file):
     print("Reading configuration from {}".format(config_file))
     with open(config_file, 'r') as fh:
         for line in fh.readlines():
-            fields = line.strip().split('=')
+            fields = line.strip().split('=',1)
             if fields[0] in required_config_fields or fields[0] in optional_config_fields:
                 config[fields[0]] = fields[1]
 
