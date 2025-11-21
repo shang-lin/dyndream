@@ -96,6 +96,10 @@ def main():
 
     if 'LOGFILE' in config:
         logfile = config['LOGFILE']
+        if not(os.access(logfile, os.W_OK)):
+            logfile = ''
+            print("Cannot open requested log file {}, logging to stdout"
+                  .format(logfile))
     else:
         logfile = ''
 
